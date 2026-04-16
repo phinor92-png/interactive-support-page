@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Interactive Support Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background-color: #4CAF50; color: white; padding: 15px; text-align: center; }
+        .content { margin: 20px 0; }
+        .faq { margin: 20px 0; }
+        .faq-item { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .faq-item:hover { background-color: #f9f9f9; }
+        .answer { display: none; margin-top: 10px; }
+        button { padding: 10px 15px; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <div id="chat-container">
+    <div class="header">
         <h1>Interactive Support Assistant</h1>
-        <div id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Type your message here...">
-        <button id="send-button">Send</button>
     </div>
-    <script src="script.js"></script>
+    <div class="content">
+        <p>Welcome to our interactive support assistant. Please check the FAQs below or reach out for help!</p>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>What is this service?</h3>
+                <button onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="answer">This is an interactive support assistant designed to help you with your queries.</div>
+            </div>
+            <div class="faq-item">
+                <h3>How can I contact support?</h3>
+                <button onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="answer">You can contact support via email at support@example.com.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleAnswer(button) {
+            var answer = button.nextElementSibling;
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
